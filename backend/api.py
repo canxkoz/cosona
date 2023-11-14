@@ -1,4 +1,4 @@
-from flask import Flask, request, flash, redirect, url_for
+from flask import Flask, request
 import cohere
 from pymongo import MongoClient
 from dotenv import load_dotenv
@@ -6,6 +6,7 @@ from werkzeug.utils import secure_filename
 import pprint
 import os
 from constants import ALLOWED_EXTENSIONS
+from db import store_pdf
 
 load_dotenv()
 app = Flask(__name__)
@@ -36,7 +37,7 @@ def upload_script():
             printer.pprint("No selected file")
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            file.save("backend/pdfs/" + filename)
+            store_pdf(file, filename)
             printer.pprint(f"File saved {filename}")
 
 
