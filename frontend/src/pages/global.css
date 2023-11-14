@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Consolas:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700&display=swap");
+body {
+  margin: 0;
+  line-height: normal;
+}
+:root {
+  /* fonts */
+  --font-consolas: Consolas;
+  --font-nunito-sans: "Nunito Sans";
+
+  /* font sizes */
+  --font-size-21xl: 40px;
+
+  /* Colors */
+  --color-darkslateblue: #494890;
+  --color-white: #fff;
+  --color-black: #000;
+
+  /* Gaps */
+  --gap-3xs: 10px;
+
+  /* Paddings */
+  --padding-3xs: 10px;
+  --padding-11xl: 30px;
+
+  /* Border radiuses */
+  --br-mini: 15px;
+
+  /* font sizes */
+  --font-size-16xl: 35px;
+  --font-size-6xl: 25px;
+
+  /* Colors */
+  --color-lightgray: #ded6c7;
+  --color-darkslategray-100: #39594d;
+  --color-darkslategray-200: #363636;
+  --color-gray: #171717;
+  --color-tomato: #e75e40;
+  --color-white: #fff;
+  --color-orangered: #f52c00;
+  --color-plum: #d18ee2;
+  --color-darkslateblue: #494890;
+
+  /* Gaps */
+  --gap-3xs: 10px;
+  --gap-xl: 20px;
+
+  /* Paddings */
+  --padding-3xl: 22px;
+  --padding-3xs: 10px;
+  --padding-11xl: 30px;
+  --padding-mid: 17px;
+  --padding-mini: 15px;
+  --padding-lg: 18px;
+  --padding-11xs: 2px;
+  --padding-2xl: 21px;
+  --padding-7xl: 26px;
+  --padding-xl: 20px;
+  --padding-17xl: 36px;
+
+  /* Border radiuses */
+  --br-mini: 15px;
+  --br-3xs: 10px;
+}
