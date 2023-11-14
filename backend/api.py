@@ -1,16 +1,18 @@
 from flask import Flask, request, flash, redirect, url_for
+import cohere
 from pymongo import MongoClient
 from dotenv import load_dotenv
 from werkzeug.utils import secure_filename
 import pprint
 import os
+from constants import ALLOWED_EXTENSIONS
 
 load_dotenv()
 app = Flask(__name__)
 dbClient = MongoClient(os.getenv("ATLAS_URI"))
-db = dbClient[os.getenv("DB_NAME")]
-ALLOWED_EXTENSIONS = {"pdf"}
+cohere_db = dbClient[os.getenv("DB_NAME")]
 printer = pprint.PrettyPrinter(indent=4)
+co = cohere.Client(os.getenv("COHERE_API_KEY"))
 
 
 @app.route("/")
@@ -38,4 +40,4 @@ def upload_script():
             printer.pprint(f"File saved {filename}")
 
 
-app.run(host="localhost", port=8000, debug=True)
+# app.run(host="localhost", port=8000, debug=True)

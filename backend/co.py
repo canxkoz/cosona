@@ -1,11 +1,6 @@
-from dotenv import load_dotenv
 from pypdf import PdfReader
-import cohere
-import os
-
-load_dotenv()
-
-co = cohere.Client(os.getenv("COHERE_API_KEY"))
+from db import store_pdf
+from api import co
 
 
 def get_movie_characters(script: str, template: str):
@@ -35,16 +30,11 @@ def cleanup_script(filepath: str):
     with open("backend/output.txt", "w", encoding="utf-8") as f:
         f.write(text)
 
+    # store the pdf in the database
+    pdf_id = store_pdf(filepath)
+
     ### Remove all the side characters from the script
     return text
-
-
-def convert_pdf_to_json(filepath: str):
-    res = {}
-    with open(filepath, "rb", encoding="utf-8") as f:
-        res["file"] = f.read()
-    print(res["file"])
-    return res
 
 
 if __name__ == "__main__":

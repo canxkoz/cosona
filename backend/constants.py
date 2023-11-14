@@ -1,0 +1,2 @@
+COLLECTION_NAME = "scripts"
+ALLOWED_EXTENSIONS = {"pdf"}
