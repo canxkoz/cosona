@@ -1,0 +1,365 @@
+.cosonaLogoIcon {
+  width: 57.36px;
+  height: 53.19px;
+}
+.cosonaLogoIcon,
+.cosonas {
+  position: relative;
+}
+.cohereLogoWhiteIcon {
+  position: relative;
+  width: 85.64px;
+  height: 14.37px;
+  margin-top: -2px;
+}
+.cosonasParent,
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.logo {
+  align-self: stretch;
+  border-radius: var(--br-mini);
+  flex-direction: row;
+  align-items: center;
+  padding: var(--padding-mini) 0;
+  gap: var(--gap-xl);
+  font-size: var(--font-size-16xl);
+}
+.personasIcon {
+  position: relative;
+  width: 32.77px;
+  height: 22.94px;
+}
+.cosonas1 {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.personasIconParent,
+.sideBarInner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.personasIconParent {
+  flex: 1;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-plum);
+  height: 33px;
+  justify-content: space-between;
+  padding: 0 var(--padding-smi);
+  box-sizing: border-box;
+}
+.sideBarInner {
+  align-self: stretch;
+  border-radius: var(--br-mini);
+  justify-content: flex-start;
+}
+.plusVectorIcon {
+  position: relative;
+  width: 21.88px;
+  height: 21.88px;
+}
+.plusVectorWrapper {
+  flex: 1;
+  border-radius: var(--br-mini);
+  background-color: var(--color-darkslategray-100);
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-mini) var(--padding-7xl);
+  box-sizing: border-box;
+}
+.chatIcon {
+  position: relative;
+  width: 25px;
+  height: 21.88px;
+}
+.chatIconWrapper,
+.frameParent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+}
+.chatIconWrapper {
+  flex: 1;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-darkslateblue);
+  height: 60px;
+  justify-content: center;
+  padding: 0 var(--padding-2xl);
+  cursor: pointer;
+}
+.frameParent {
+  border-radius: var(--br-mini);
+  width: 259px;
+  justify-content: flex-start;
+  padding: 0 var(--padding-11xs);
+  gap: var(--gap-3xs);
+}
+.userAltIcon {
+  position: relative;
+  width: 30.44px;
+  height: 30.44px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.myCosonas {
+  flex: 1;
+  position: relative;
+}
+.userAltParent {
+  align-self: stretch;
+  border-radius: var(--br-mini);
+  background-color: var(--color-orangered);
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-mini) var(--padding-lg);
+  box-sizing: border-box;
+  gap: var(--gap-3xs);
+}
+.starIcon {
+  position: relative;
+  width: 30.44px;
+  height: 30.44px;
+}
+.starIconParent {
+  align-self: stretch;
+  border-radius: var(--br-mini);
+  background-color: var(--color-tomato);
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-mini) var(--padding-lg);
+  box-sizing: border-box;
+  gap: var(--gap-3xs);
+}
+.avengerIcon,
+.miscIcon,
+.narutoIcon {
+  position: relative;
+  width: 30.44px;
+  height: 25.92px;
+}
+.avengerIcon,
+.miscIcon {
+  height: 35.39px;
+}
+.miscIcon {
+  height: 24.35px;
+}
+.colLeft,
+.sideBar {
+  height: 1024px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transform: rotate(180deg);
+  transform-origin: 0 0;
+}
+.sideBar {
+  background-color: var(--color-gray);
+  align-items: center;
+  padding: var(--padding-3xl) var(--padding-mid);
+  box-sizing: border-box;
+  gap: var(--gap-xl);
+}
+.colLeft {
+  align-items: flex-start;
+}
+.characterimgIcon {
+  position: relative;
+  width: 138px;
+  height: 138px;
+}
+.characterimgWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.yourOwnCharacter {
+  align-self: stretch;
+  position: relative;
+}
+.characterinfo,
+.content {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.characterinfo {
+  gap: var(--gap-2xl);
+}
+.create {
+  align-self: stretch;
+  position: relative;
+  display: inline-block;
+  height: 37px;
+  flex-shrink: 0;
+}
+.characterinfoParent,
+.chatnowbtn,
+.createYourOwn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.chatnowbtn {
+  align-self: stretch;
+  border-radius: var(--br-mini);
+  background-color: var(--color-darkslategray-100);
+  justify-content: flex-start;
+  padding: var(--padding-9xs) 0;
+  font-size: var(--font-size-16xl);
+  color: var(--color-gainsboro);
+}
+.characterinfoParent,
+.createYourOwn {
+  justify-content: center;
+  box-sizing: border-box;
+}
+.characterinfoParent {
+  width: 232px;
+  padding: 0 var(--padding-12xs);
+  gap: var(--gap-2xl);
+}
+.createYourOwn {
+  border-radius: var(--br-xl);
+  background-color: var(--color-lightgray);
+  width: 300px;
+  height: 394px;
+  padding: var(--padding-68xl) var(--padding-31xl) var(--padding-31xl);
+}
+.characterimgIcon1 {
+  position: relative;
+  width: 138px;
+  height: 138px;
+  display: none;
+}
+.characterimgContainer {
+  flex-direction: column;
+  justify-content: center;
+  background-image: url(/frame-41@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.characterimgContainer,
+.chatnowbtn1,
+.seriesWrapper {
+  display: flex;
+  align-items: center;
+}
+.seriesWrapper {
+  flex-direction: row;
+  justify-content: center;
+  text-align: left;
+  font-size: var(--font-size-xl);
+}
+.chatnowbtn1 {
+  align-self: stretch;
+  border-radius: var(--br-mini);
+  background-color: var(--color-darkslateblue);
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: var(--padding-9xs) 0;
+  font-size: var(--font-size-16xl);
+  color: var(--color-gainsboro);
+}
+.characterimgFrame,
+.characterimgWrapper1,
+.characterimgWrapper2,
+.characterimgWrapper3,
+.characterimgWrapper4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url(/frame-411@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.characterimgWrapper1,
+.characterimgWrapper2,
+.characterimgWrapper3,
+.characterimgWrapper4 {
+  background-image: url(/frame-412@3x.png);
+}
+.characterimgWrapper2,
+.characterimgWrapper3,
+.characterimgWrapper4 {
+  background-image: url(/frame-413@3x.png);
+}
+.characterimgWrapper3,
+.characterimgWrapper4 {
+  background-image: url(/frame-414@3x.png);
+}
+.characterimgWrapper4 {
+  background-image: url(/frame-415@3x.png);
+}
+.colRight,
+.peopleBox,
+.peopleBoxWrapper {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+.peopleBox {
+  align-self: stretch;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: 55px 0;
+  gap: 43px;
+}
+.colRight,
+.peopleBoxWrapper {
+  flex-direction: column;
+  align-items: center;
+}
+.colRight {
+  align-self: stretch;
+  overflow-y: auto;
+  justify-content: center;
+  color: var(--color-darkslategray-200);
+}
+.mainFrame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1440px;
+  height: 1024px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.personasDesignA {
+  position: relative;
+  background-color: #eae6de;
+  width: 100%;
+  height: 1024px;
+  overflow: hidden;
+  text-align: center;
+  font-size: var(--font-size-6xl);
+  color: var(--color-white);
+  font-family: var(--font-consolas);
+}

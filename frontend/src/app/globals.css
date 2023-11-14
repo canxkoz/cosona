@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Consolas:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  margin: 0;
+  line-height: normal;
+}
+:root {
+  /* fonts */
+  --font-consolas: Consolas;
+  --font-nunito-sans: "Nunito Sans";
+
+  /* font sizes */
+  --font-size-21xl: 40px;
+
+  /* Colors */
+  --color-darkslateblue: #494890;
+  --color-white: #fff;
+  --color-black: #000;
+
+  /* Gaps */
+  --gap-3xs: 10px;
+
+  /* Paddings */
+  --padding-3xs: 10px;
+  --padding-11xl: 30px;
+
+  /* Border radiuses */
+  --br-mini: 15px;
+}
