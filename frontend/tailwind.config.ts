@@ -1,10 +1,10 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -18,8 +18,8 @@ const config: Config = {
         darkslategray: "#39594d",
         plum: "#d18ee2",
         darknavyblue: "#353468",
-        darkgreen:"#28463b",
-        darkpink:"#ac51c3",
+        darkgreen: "#28463b",
+        darkpink: "#ac51c3",
       },
       spacing: {},
       fontFamily: {
@@ -28,14 +28,15 @@ const config: Config = {
       },
       borderRadius: {
         mini: "15px",
+        medium: "30px",
       },
     },
     fontSize: {
       "21xl": "20px",
       inherit: "inherit",
-      "31xl":"30px",
+      "31xl": "30px",
     },
   },
   plugins: [],
-}
-export default config
+};
+export default config;

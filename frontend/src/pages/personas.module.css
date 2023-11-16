@@ -181,178 +181,53 @@
 .colLeft {
   align-items: flex-start;
 }
-.characterimgIcon {
-  position: relative;
-  width: 138px;
-  height: 138px;
-}
-.characterimgWrapper {
+
+.colRight {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 1;
+  overflow-y: auto;
   justify-content: center;
+  color: var(--color-darkslategray-200);
+  margin-left: 50px;
 }
-.yourOwnCharacter {
-  align-self: stretch;
-  position: relative;
-}
-.characterinfo,
-.content {
-  align-self: stretch;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.characterinfo {
-  gap: var(--gap-2xl);
-}
-.create {
-  align-self: stretch;
-  position: relative;
-  display: inline-block;
-  height: 37px;
-  flex-shrink: 0;
-}
-.characterinfoParent,
-.chatnowbtn,
-.createYourOwn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.chatnowbtn {
-  align-self: stretch;
-  border-radius: var(--br-mini);
-  background-color: var(--color-darkslategray-100);
-  justify-content: flex-start;
-  padding: var(--padding-9xs) 0;
-  font-size: var(--font-size-16xl);
-  color: var(--color-gainsboro);
-}
-.characterinfoParent,
-.createYourOwn {
-  justify-content: center;
-  box-sizing: border-box;
-}
-.characterinfoParent {
-  width: 232px;
-  padding: 0 var(--padding-12xs);
-  gap: var(--gap-2xl);
-}
-.createYourOwn {
-  border-radius: var(--br-xl);
-  background-color: var(--color-lightgray);
-  width: 300px;
-  height: 394px;
-  padding: var(--padding-68xl) var(--padding-31xl) var(--padding-31xl);
-}
-.characterimgIcon1 {
-  position: relative;
-  width: 138px;
-  height: 138px;
-  display: none;
-}
-.characterimgContainer {
-  flex-direction: column;
-  justify-content: center;
-  background-image: url(/frame-41@3x.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top;
-}
-.characterimgContainer,
-.chatnowbtn1,
-.seriesWrapper {
-  display: flex;
-  align-items: center;
-}
-.seriesWrapper {
-  flex-direction: row;
-  justify-content: center;
-  text-align: left;
-  font-size: var(--font-size-xl);
-}
-.chatnowbtn1 {
-  align-self: stretch;
-  border-radius: var(--br-mini);
-  background-color: var(--color-darkslateblue);
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: var(--padding-9xs) 0;
-  font-size: var(--font-size-16xl);
-  color: var(--color-gainsboro);
-}
-.characterimgFrame,
-.characterimgWrapper1,
-.characterimgWrapper2,
-.characterimgWrapper3,
-.characterimgWrapper4 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-image: url(/frame-411@3x.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top;
-}
-.characterimgWrapper1,
-.characterimgWrapper2,
-.characterimgWrapper3,
-.characterimgWrapper4 {
-  background-image: url(/frame-412@3x.png);
-}
-.characterimgWrapper2,
-.characterimgWrapper3,
-.characterimgWrapper4 {
-  background-image: url(/frame-413@3x.png);
-}
-.characterimgWrapper3,
-.characterimgWrapper4 {
-  background-image: url(/frame-414@3x.png);
-}
-.characterimgWrapper4 {
-  background-image: url(/frame-415@3x.png);
-}
-.colRight,
+
 .peopleBox,
 .peopleBoxWrapper {
   flex: 1;
   display: flex;
   justify-content: flex-start;
-}
-.peopleBox {
   align-self: stretch;
+}
+
+.peopleBox {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;
-  padding: 55px 0;
   gap: 43px;
 }
-.colRight,
+
 .peopleBoxWrapper {
   flex-direction: column;
   align-items: center;
+  gap: 10px;
 }
-.colRight {
-  align-self: stretch;
-  overflow-y: auto;
-  justify-content: center;
-  color: var(--color-darkslategray-200);
-}
+
 .mainFrame {
-  position: absolute;
+  align-self: stretch;
   top: 0;
   left: 0;
-  width: 1440px;
-  height: 1024px;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
 }
 .personasDesignA {
+  align-self: stretch;
+
   position: relative;
   background-color: #eae6de;
   width: 100%;
@@ -363,3 +238,4 @@
   color: var(--color-white);
   font-family: var(--font-consolas);
 }
+

@@ -1,0 +1,227 @@
+.vectorTracedIcon {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.logo,
+.logoWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.logo {
+  width: 100.5px;
+  height: 113.19px;
+  padding: var(--padding-3xs) 0;
+  box-sizing: border-box;
+}
+.logoWrapper {
+  padding: 0 var(--padding-11xl);
+}
+.vectorIcon {
+  width: 32.77px;
+  height: 22.94px;
+}
+.personas,
+.vectorIcon {
+  position: relative;
+}
+.personabtn {
+  border-radius: var(--br-mini);
+  background-color: #d18ee2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-3xs) var(--padding-11xl);
+  gap: var(--gap-3xs);
+  cursor: pointer;
+}
+.vectorIcon1 {
+  position: relative;
+  width: 25px;
+  height: 21.88px;
+}
+.chatbtn {
+  border-radius: var(--br-mini);
+  background-color: var(--color-darkslateblue);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-3xs) var(--padding-11xl);
+  gap: var(--gap-3xs);
+  cursor: pointer;
+}
+.vectorIcon2 {
+  position: relative;
+  width: 21.88px;
+  height: 21.88px;
+}
+.actions,
+.createbtn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.createbtn {
+  border-radius: var(--br-mini);
+  background-color: #39594d;
+  justify-content: center;
+  padding: var(--padding-3xs) var(--padding-11xl);
+  gap: var(--gap-3xs);
+  cursor: pointer;
+}
+.actions {
+  justify-content: flex-start;
+  gap: 32px;
+}
+.actionsWrapper,
+.navBar {
+  display: flex;
+  justify-content: center;
+}
+.actionsWrapper {
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 0 var(--padding-11xl);
+}
+.navBar {
+  align-self: stretch;
+  background-color: #171717;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--padding-3xs) 0;
+}
+.createYourCosona {
+  position: relative;
+  display: inline-block;
+  width: 698px;
+  transform: rotate(0.19deg);
+  transform-origin: 0 0;
+}
+.createYourCosonaWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px;
+}
+.characterimgIcon {
+  position: relative;
+  width: 138px;
+  height: 138px;
+}
+.characterimgWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.name {
+  flex: 1;
+  position: relative;  
+  font-size: 30px;
+}
+.nameContainer,
+.nameWrapper {
+  border-radius: var(--br-mini);
+  flex-direction: row;
+  justify-content: center;
+}
+.nameWrapper {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+.nameContainer {
+  background-color: #fafafa;
+  border: 1px solid var(--color-darkgray);
+  padding: var(--padding-3xs) var(--padding-11xl);
+  font-size: var(--font-size-21xl);
+  color: #595959;
+}
+.frameContainer,
+.nameContainer,
+.uploadWrapper,
+.createYourCosonaContainer {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+.frameContainer {
+  flex-direction: column;
+  justify-content: center;
+}
+.uploadWrapper {
+  background-color: rgba(230, 230, 230, 0.93);
+  border: 1px solid var(--color-darkgray);
+  flex-direction: row;
+  padding: var(--padding-3xs) var(--padding-11xl);
+  text-align: center;
+  font-size: var(--font-size-21xl);
+  color: #585858;
+}
+.createYourCosonaContainer,
+.frameGroup,
+.uploadWrapper {
+  border-radius: var(--br-mini);
+  justify-content: center;
+}
+.createYourCosonaContainer {
+  
+  background-color: var(--color-darkslateblue);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--padding-3xs) var(--padding-11xl);
+  text-align: center;
+  font-size: var(--font-size-21xl);
+  color: var(--color-white);
+}
+.frameGroup {
+  align-self: stretch;
+  background-color: #eaddc2;
+  padding: 87px 124px;
+  gap: var(--gap-3xs);
+  text-align: left;
+  font-size: var(--font-size-11xl);
+  font-family: var(--font-consolas);
+}
+.create,
+.frameGroup,
+.frameParent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.frameParent {
+  justify-content: center;
+  padding: 4px 113px;
+  gap: 24px;
+  font-size: 70px;
+  color: var(--color-black);
+  font-family: var(--font-nunito-sans);
+}
+.create {
+  position: relative;
+  background-color: #eae6de;
+  width: 100%;
+  height: 1024px;
+  overflow: hidden;
+  justify-content: flex-start;
+  gap: 69px;
+  text-align: center;
+  font-size: var(--font-size-21xl);
+  color: var(--color-white);
+  font-family: var(--font-consolas);
+}
+
+.createYourCosonaContainer:hover{
+  background-color: #353468;
+}

@@ -1,10 +1,9 @@
 import gridfs
-from api import cohere_db
 from werkzeug.datastructures import FileStorage
 from constants import *
 
 
-def store_pdf(file: FileStorage, filepath):
+def store_pdf(cohere_db: str, file: FileStorage, filepath):
     # Create a GridFS object
     # this connects to mongo
     fs = gridfs.GridFS(cohere_db, collection=COLLECTION_NAME)

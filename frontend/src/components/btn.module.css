@@ -1,0 +1,265 @@
+.chatbtn,.createbtn,.personabtn, .chatbtnsm, .personabtnsm, .normalBtn,.selectedBtn
+{
+  text-decoration: none;
+  color: white;
+}
+.chatbtn:hover, .chatbtnsm:hover {
+  background: #353468; 
+}
+.createbtn:hover, .createbtnmd:hover{
+  background: #28463b; 
+}
+.personabtn:hover, .personasbtnmd:hover{
+  background: #ac51c3; 
+}
+
+.chatbtn {
+    border-radius: var(--br-mini);
+    background-color: var(--color-darkslateblue);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding-3xs) var(--padding-11xl);
+    gap: var(--gap-3xs);
+    cursor: pointer;
+  }
+
+  .chatIcon {
+    position: relative;
+    width: 25px;
+    height: 21.88px;
+  }
+  .text{
+  position: relative;
+  text-decoration: none;
+  
+}
+
+
+
+.personaIcon {
+  width: 32.77px;
+  height: 22.94px;
+}
+.personabtn {
+  border-radius: var(--br-mini);
+  background-color: #d18ee2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-3xs) var(--padding-11xl);
+  gap: var(--gap-3xs);
+  cursor: pointer;
+}
+
+
+.createIcon {
+  position: relative;
+  width: 21.88px;
+  height: 21.88px;
+}
+
+.createbtn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: var(--br-mini);
+  background-color: #39594d;
+  justify-content: center;
+  padding: var(--padding-3xs) var(--padding-11xl);
+  gap: var(--gap-3xs);
+  cursor: pointer;
+}
+
+
+.chatbtnsm {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-darkslateblue);
+  height: 33px;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 var(--padding-1xl);
+  box-sizing: border-box;
+}
+
+.createbtnmd {  
+  flex: 1;
+  border-radius: var(--br-mini);
+  background-color: var(--color-darkslategray-100);
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding-mini) var(--padding-7xl);
+  box-sizing: border-box;
+}
+
+.personasbtnmd{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  flex: 1;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-plum);
+  height: 60px;
+  justify-content: center;
+  padding: 0 var(--padding-2xl);
+  cursor: pointer;
+}
+
+.chatbtnmd{
+display: flex;
+flex-direction: row;
+align-items: center;
+box-sizing: border-box;
+flex: 1;
+border-radius: var(--br-3xs);
+background-color: var(--color-darkslateblue);
+height: 60px;
+justify-content: center;
+padding: 0 var(--padding-2xl);
+cursor: pointer;
+}
+
+
+.characterTxt {
+  flex: 1;
+  position: relative;
+  text-decoration: none;
+  color: white;
+}
+.userAltIcon {
+  position: relative;
+  width: 30.44px;
+  height: 30.44px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+
+.selectedBtn,
+.normalBtn {
+  align-self: stretch;
+  border-radius: var(--br-mini);
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-tomato);  
+  padding: var(--padding-mini) var(--padding-lg);
+  box-sizing: border-box;
+  gap: var(--gap-3xs);  
+  text-decoration: none;
+
+}
+.selectedBtn, .normalBtn:hover{
+  background-color: var(--color-orangered);
+
+}
+
+
+
+
+.personabtnsm{
+  align-self: stretch;
+
+
+  background-color: var(--color-plum);
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: var(--br-3xs);
+  border-radius: var(--br-3xs);
+  height: 33px;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 var(--padding-1xl);
+  box-sizing: border-box;
+}
+
+
+/* Nav Bar */
+
+.logo,
+.logoWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.logo {
+  width: 100.5px;
+  height: 113.19px;
+  padding: var(--padding-3xs) 0;
+  box-sizing: border-box;
+}
+.logoWrapper {
+  padding: 0 var(--padding-11xl);
+}
+
+.logo,
+.logoWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.logo {
+  width: 100.5px;
+  height: 113.19px;
+  padding: var(--padding-3xs) 0;
+  box-sizing: border-box;
+}
+.vectorTracedIcon {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.actionsWrapper,
+.navBar {
+  display: flex;
+  justify-content: center;
+}
+.actionsWrapper {
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 0 var(--padding-11xl);
+}
+.navBar {
+  align-self: stretch;
+  background-color: #171717;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--padding-3xs) 0;
+}
+.actionsWrapper {
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 0 var(--padding-11xl);
+}
+
+.actions,
+.createbtn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.actions {
+  justify-content: flex-start;
+  gap: 32px;
+}

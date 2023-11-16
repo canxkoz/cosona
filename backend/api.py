@@ -5,11 +5,23 @@ from dotenv import load_dotenv
 from werkzeug.utils import secure_filename
 import pprint
 import os
-from constants import ALLOWED_EXTENSIONS
+from constants import ALLOWED_EXTENSIONS, PROMPTS
 from db import store_pdf
+from langchain.chat_models import ChatCohere
+from langchain.memory import ConversationBufferMemory
+from langchain.chains import LLMChain
+from langchain.prompts import (
+    ChatPromptTemplate,
+    SystemMessagePromptTemplate,
+    MessagesPlaceholder,
+    HumanMessagePromptTemplate,
+)
+from langchain.embeddings import CohereEmbeddings
+from flask_cors import CORS
 
 load_dotenv()
 app = Flask(__name__)
+CORS(app, support_credentials=True)
 dbClient = MongoClient(os.getenv("ATLAS_URI"))
 cohere_db = dbClient[os.getenv("DB_NAME")]
 printer = pprint.PrettyPrinter(indent=4)
@@ -37,8 +49,52 @@ def upload_script():
             printer.pprint("No selected file")
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
-            store_pdf(file, filename)
+            store_pdf(cohere_db, file, filename)
             printer.pprint(f"File saved {filename}")
 
 
-# app.run(host="localhost", port=8000, debug=True)
+@app.route("/api/chat", methods=["GET", "POST"])
+def chat():
+    if request.method == "POST":
+        data = request.get_json()
+        printer.pprint(data["text"])
+        chat_history = data["text"]
+        response = get_response(chat_history)
+        printer.pprint(response)
+        # response = co.chat(data["text"])
+
+        return data
+
+
+# get response from chatbot given character and previous chat history
+def get_response(chat_history, character):
+    chat_model = ChatCohere(cohere_api_key=os.getenv("COHERE_API_KEY"))
+    embeddings = CohereEmbeddings(cohere_api_key=os.getenv("COHERE_API_KEY"))
+    # Define the custom prompt template
+    prompt_template = ChatPromptTemplate(
+        messages=[
+            SystemMessagePromptTemplate.from_template(
+                PROMPTS[character]
+            ),  # get the template for the character
+            MessagesPlaceholder(
+                variable_name="chat_history"
+            ),  # the chat history from the client
+            HumanMessagePromptTemplate.from_template("{user_input}"),
+        ]
+    )
+
+    # Create the memory
+    memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
+
+    # Create the LLMChain with memory
+    conversation = LLMChain(
+        llm=chat_model, prompt=prompt_template, verbose=True, memory=memory
+    )
+
+    # Generate a response from the chatbot
+    response = conversation.invoke({"user_input": chat_history})
+    return response["text"]
+
+
+if __name__ == "__main__":
+    app.run(host="localhost", port=8080, debug=True)

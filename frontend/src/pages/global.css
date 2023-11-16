@@ -15,7 +15,12 @@ body {
   /* Colors */
   --color-darkslateblue: #494890;
   --color-white: #fff;
-  --color-black: #000;
+  --color-black: #000;  
+  --color-darkslategray: "#39594d";
+  --color-plum: "#d18ee2";
+  --color-darknavyblue: "#353468";
+  --color-darkgreen: "#28463b";
+  --color-darkpink: "#ac51c3";
 
   /* Gaps */
   --gap-3xs: 10px;
