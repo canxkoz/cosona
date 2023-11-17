@@ -68,8 +68,17 @@ def chat():
 
 # get response from chatbot given character and previous chat history
 def get_response(chat_history, character):
+    # Split the chat history into a list of messages
+    messages = chat_history.split(',')
+
+    # Separate the chatbot and user messages
+    chatbot_messages = messages[::2]
+    user_messages = messages[1::2]
+
+    # Initialize the Cohere Client with an API Key
     chat_model = ChatCohere(cohere_api_key=os.getenv("COHERE_API_KEY"))
     embeddings = CohereEmbeddings(cohere_api_key=os.getenv("COHERE_API_KEY"))
+
     # Define the custom prompt template
     prompt_template = ChatPromptTemplate(
         messages=[
@@ -82,6 +91,11 @@ def get_response(chat_history, character):
             HumanMessagePromptTemplate.from_template("{user_input}"),
         ]
     )
+
+    # Make a request to the Cohere API and get the response
+    response = chat_model.generate(prompt_template)
+
+    return response
 
     # Create the memory
     memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
