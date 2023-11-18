@@ -86,19 +86,19 @@ const PersonasDesignA: NextPage = () => {
                 chatUrl="/Chat?character=tonystark"
               />
               <CharacterCard
-                src="Yoda.svg"
+                src="yoda.svg"
                 characterName="Yoda"
                 seriesName="Star Wars"
                 chatUrl="/Chat?character=yoda"
               />
               <CharacterCard
-                src="Harry.svg"
+                src="harry.svg"
                 characterName="Harry Potter"
                 seriesName="Harry Potter"
                 chatUrl="/Chat?character=harrypotter"
               />
               <CharacterCard
-                src="Rick.svg"
+                src="rick.svg"
                 characterName="Rick Sanchez"
                 seriesName="Rick and Morty"
                 chatUrl="/Chat?character=ricksanchez"
