@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from werkzeug.utils import secure_filename
 import pprint
 import os
-from constants import ALLOWED_EXTENSIONS, PROMPTS
+from constants import ALLOWED_EXTENSIONS, PROMPTS, NEW_PROMPTS
 from db import store_pdf
 from langchain.chat_models import ChatCohere
 from langchain.memory import ConversationBufferMemory
@@ -16,8 +16,14 @@ from langchain.prompts import (
     MessagesPlaceholder,
     HumanMessagePromptTemplate,
 )
-from langchain.embeddings import CohereEmbeddings
 from flask_cors import CORS
+from langchain.chat_models import ChatCohere
+from langchain.memory import ConversationBufferMemory
+from langchain.chains import LLMChain
+from langchain.chat_models import ChatCohere
+from langchain.memory import ConversationBufferMemory
+from langchain.chains import LLMChain
+import json
 
 load_dotenv()
 app = Flask(__name__)
@@ -26,6 +32,9 @@ dbClient = MongoClient(os.getenv("ATLAS_URI"))
 cohere_db = dbClient[os.getenv("DB_NAME")]
 printer = pprint.PrettyPrinter(indent=4)
 co = cohere.Client(os.getenv("COHERE_API_KEY"))
+chat_model = ChatCohere(
+    cohere_api_key=os.getenv("COHERE_API_KEY"), model="command", temperature="0.5"
+)
 
 
 @app.route("/")
@@ -53,61 +62,44 @@ def upload_script():
             printer.pprint(f"File saved {filename}")
 
 
-@app.route("/api/chat", methods=["GET", "POST"])
+@app.route("/api/chat", methods=["POST"])
 def chat():
     if request.method == "POST":
         data = request.get_json()
-        printer.pprint(data["text"])
         chat_history = data["text"]
-        response = get_response(chat_history)
-        printer.pprint(response)
-        # response = co.chat(data["text"])
+        character = data["character"]
+        if character == "":
+            return {"error": "Please select a character"}
+        response = get_response(chat_history, character)
 
-        return data
+        return response
 
 
-# get response from chatbot given character and previous chat history
-def get_response(chat_history, character):
-    # Split the chat history into a list of messages
-    messages = chat_history.split(',')
-
-    # Separate the chatbot and user messages
-    chatbot_messages = messages[::2]
-    user_messages = messages[1::2]
-
-    # Initialize the Cohere Client with an API Key
-    chat_model = ChatCohere(cohere_api_key=os.getenv("COHERE_API_KEY"))
-    embeddings = CohereEmbeddings(cohere_api_key=os.getenv("COHERE_API_KEY"))
-
-    # Define the custom prompt template
+def get_response(messages, character):
     prompt_template = ChatPromptTemplate(
         messages=[
-            SystemMessagePromptTemplate.from_template(
-                PROMPTS[character]
-            ),  # get the template for the character
-            MessagesPlaceholder(
-                variable_name="chat_history"
-            ),  # the chat history from the client
-            HumanMessagePromptTemplate.from_template("{user_input}"),
+            SystemMessagePromptTemplate.from_template(PROMPTS[character]),
+            MessagesPlaceholder(variable_name="chat_history"),
+            HumanMessagePromptTemplate.from_template("{input}"),  # last message
         ]
     )
 
-    # Make a request to the Cohere API and get the response
-    response = chat_model.generate(prompt_template)
-
-    return response
-
-    # Create the memory
     memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
-    # Create the LLMChain with memory
     conversation = LLMChain(
         llm=chat_model, prompt=prompt_template, verbose=True, memory=memory
     )
 
-    # Generate a response from the chatbot
-    response = conversation.invoke({"user_input": chat_history})
-    return response["text"]
+    
+
+    response = conversation.invoke({"input": PROMPTS[character] + messages[-1]})
+
+    # Return the response
+    res = {
+        "message": response["text"],
+    }
+
+    return res
 
 
 if __name__ == "__main__":

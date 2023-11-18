@@ -11,7 +11,7 @@ interface ResponseBoxProps {
 
 const ResponseBox: React.FC<ResponseBoxProps> = ({ response, name, pictureSrc }) => {
   const isUser = name.trim() === "";
-  const defaultPicture = "user-alt.svg"; // Replace with the actual path
+  const defaultPicture = "user-alt.svg";
 
   return (
     <div className={`${styles.responseBox} ${isUser ? styles.userBackground : ""}`}>

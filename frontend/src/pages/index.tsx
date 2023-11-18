@@ -39,23 +39,9 @@ function VertScroll() {
 }
 
 const Landing: NextPage = () => {
-  const elementRef = useRef();
-
-  const onPersonaBtnContainerClick = useCallback(() => {
-    // Please sync "Personas Design A" to the project
-  }, []);
-
-  const onChatBtnContainerClick = useCallback(() => {
-    // Please sync "Chat Design A" to the project
-  }, []);
-
-  const onCreateBtnContainerClick = useCallback(() => {
-    // Please sync "Chat Design A" to the project
-  }, []);
-
   return (
     <div className={styles.landing}>
-      <NavBar/>
+      <NavBar />
       <div className={styles.frameParent}>
         <div className={styles.cosonaParent}>
           <b className={styles.cosona}>
@@ -76,7 +62,7 @@ const Landing: NextPage = () => {
             <p className={styles.bringCharactersFrom}>to life</p>
           </div>
         </div>
-        <CosanaBtn text="Get chatting" href="/Chat" type="chatbtn" icon="" />
+        <CosanaBtn text="Get chatting" href="/Personas" type="chatbtn" icon="" />
       </div>
     </div>
   );

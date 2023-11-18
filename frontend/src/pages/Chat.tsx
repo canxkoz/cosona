@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import styles from "./chat.module.css";
 import Image from "next/image";
 import { MdOutlineSend } from "react-icons/md";
@@ -12,7 +12,8 @@ const ChatDesignA: NextPage = () => {
   // odd is user input, even is chatbot output
   const [chat, setChat] = useState<string[]>([]);
   const [textareaInput, setTextareaInput] = useState<string>("");
-  const [character, setCharacter] = useState<string>("");
+  const [waitingForChat, setWaitingForChat] = useState<boolean>(true);
+  const [character, setCharacter] = useState<string | null>("");
 
   // Event handler to update the state when the textarea value changes
   const handleTextareaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -23,35 +24,57 @@ const ChatDesignA: NextPage = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const newChat = [...chat, textareaInput];
-    // Do something with the textareaInput, e.g., send it to an API
-    console.log("Textarea value:", textareaInput);
-    const response = await fetch("http://localhost:8080/api/chat", {
-      method: "POST",
-      body: JSON.stringify({
-        text: newChat,
-        character: character,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const json = await response.json();
-    console.log(json);
+    setChat(newChat);
+    setWaitingForChat(true);
 
     // parse json for display, and then set that to the chat state
     setTextareaInput("");
-    // setChat([...newChat, json.message]);
   };
 
   // on page load, fetch the character we need to get from thee url
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
-    const character = urlParams.get("character");
-    if (!character) {
-      throw new Error("Character not found");
+    const urlChar = urlParams.get("character");
+    if (!urlChar) {
+      setCharacter(null);
     }
-    setCharacter(character);
+    setCharacter(urlChar);
   }, []);
+
+  // custom hook to check if component is mounted
+  const useIsMount = () => {
+    const isMountRef = useRef(true);
+    useEffect(() => {
+      isMountRef.current = false;
+    }, []);
+    return isMountRef.current;
+  };
+
+  const isMount = useIsMount();
+
+  useEffect(() => {
+    if (isMount || !waitingForChat || !character) {
+      return;
+    }
+    const fetchChat = async () => {
+      console.log("fetching chat");
+      const response = await fetch("http://localhost:8080/api/chat", {
+        method: "POST",
+        body: JSON.stringify({
+          text: chat,
+          character: character,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const json = await response.json();
+      console.log(json);
+      setChat([...chat, json.message]);
+      setWaitingForChat(false);
+    };
+    fetchChat();
+  }, [chat]);
 
   return (
     <div className={styles.chatDesignA}>
@@ -100,8 +123,10 @@ const ChatDesignA: NextPage = () => {
                   <ResponseBox
                     key={index}
                     response={message}
-                    name={index % 2 === 0 ? "You" : "Bot"}
-                    pictureSrc={index % 2 === 0 ? "" : ""}
+                    name={index % 2 === 0 ? "You" : `${character}`}
+                    pictureSrc={
+                      index % 2 === 0 ? "" : `${convertCharToImgSrc(character as string)}`
+                    }
                   />
                 );
               })}
@@ -115,6 +140,8 @@ const ChatDesignA: NextPage = () => {
                 className={styles.inputContainer}
                 onChange={handleTextareaChange}
                 value={textareaInput}
+                placeholder={`Type a message to ${character}`}
+                disabled={!character}
               />
               <button type="submit">
                 <MdOutlineSend />
@@ -128,3 +155,22 @@ const ChatDesignA: NextPage = () => {
 };
 
 export default ChatDesignA;
+
+function convertCharToImgSrc(character: string) {
+  switch (character) {
+    case "sasuke":
+      return "sasuke.svg";
+    case "tonystark":
+      return "tony.svg";
+    case "yoda":
+      return "yoda.svg";
+    case "harrypotter":
+      return "harry.svg";
+    case "ricksanchez":
+      return "rick.svg";
+    case "sherlock":
+      return "sherlock.svg";
+    default:
+      return "user-alt.svg";
+  }
+}
