@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-// import {Link} from "next";
 import { useCallback } from "react";
 import styles from "./index.module.css";
 import "./scroll.css";
@@ -11,6 +10,14 @@ import Link from "next/link";
 import CosanaBtn from "@/components/CosanaBtn";
 import NavBar from "@/components/NavBar";
 const { useState } = React;
+
+export function getAPIEndpoint(): string {
+  if (process.env.NODE_ENV === "development") {
+    return "http://localhost:8080";
+  } else {
+    return "https://cosona.bxian03.com";
+  }
+}
 
 function VertScroll() {
   const [words, setWords] = useState([

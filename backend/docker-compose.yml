@@ -3,4 +3,4 @@ services:
   myapp:
     image: imcalvin/cosona:latest
     ports:
-      - 8080:8080
+      - 43219:8080

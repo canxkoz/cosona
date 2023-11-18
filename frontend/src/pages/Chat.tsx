@@ -6,6 +6,7 @@ import Image from "next/image";
 import { MdOutlineSend } from "react-icons/md";
 import CosanaBtn from "@/components/CosanaBtn";
 import MenuBtn from "@/components/MenuBtn";
+import { getAPIEndpoint } from "./index";
 import ResponseBox from "@/components/ReponseBox";
 
 const ChatDesignA: NextPage = () => {
@@ -58,7 +59,7 @@ const ChatDesignA: NextPage = () => {
     }
     const fetchChat = async () => {
       console.log("fetching chat");
-      const response = await fetch("http://localhost:8080/api/chat", {
+      const response = await fetch(`${getAPIEndpoint()}/api/chat/`, {
         method: "POST",
         body: JSON.stringify({
           text: chat,
