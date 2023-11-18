@@ -59,7 +59,7 @@ const ChatDesignA: NextPage = () => {
     }
     const fetchChat = async () => {
       console.log("fetching chat");
-      const response = await fetch(`${getAPIEndpoint()}/api/chat/`, {
+      const response = await fetch(`${getAPIEndpoint()}/api/chat`, {
         method: "POST",
         body: JSON.stringify({
           text: chat,
