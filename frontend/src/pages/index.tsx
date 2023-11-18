@@ -26,6 +26,7 @@ function VertScroll() {
     "Rick and Morty",
     "Marvel",
     "Star Wars",
+    "One Piece",
     "Harry Potter",
   ]);
   return (
@@ -39,6 +40,12 @@ function VertScroll() {
           {words[2]}
           <br />
           {words[3]}
+          <br />
+          {words[4]}
+          <br />
+          {words[5]}
+          <br />
+          {words[6]}
         </span>
       </div>
     </div>
@@ -59,7 +66,7 @@ const Landing: NextPage = () => {
             alt=""
             src="cohere-logo-black.svg"
             width={218}
-            height={37}
+            height={37} 
           />
         </div>
         <div className={styles.bringCharactersFromInsertWrapper}>

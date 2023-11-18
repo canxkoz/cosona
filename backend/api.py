@@ -27,7 +27,7 @@ import json
 
 load_dotenv()
 app = Flask(__name__)
-CORS(app, support_credentials=True)
+CORS(app, origins=["http://localhost:3000", "https://cosona.vercel.app"])
 dbClient = MongoClient(os.getenv("ATLAS_URI"))
 cohere_db = dbClient[os.getenv("DB_NAME")]
 printer = pprint.PrettyPrinter(indent=4)
@@ -62,17 +62,16 @@ def allowed_file(filename):
 #             printer.pprint(f"File saved {filename}")
 
 
-@app.route("/api/chat", methods=["GET", "POST"])
+@app.route("/api/chat", methods=["POST"])
 def chat():
-    if request.method == "POST":
-        data = request.get_json()
-        chat_history = data["text"]
-        character = data["character"]
-        if character == "":
-            return {"error": "Please select a character"}
-        response = get_response(chat_history, character)
+    data = request.get_json()
+    chat_history = data["text"]
+    character = data["character"]
+    if character == "":
+        return {"error": "Please select a character"}
+    response = get_response(chat_history, character)
 
-        return response
+    return response
 
 
 def get_response(messages, character):
@@ -101,4 +100,4 @@ def get_response(messages, character):
 
 
 if __name__ == "__main__":
-    app.run(host="localhost", port=8080, debug=True)
+    app.run(host="0.0.0.0", port=8080, debug=True)
