@@ -72,7 +72,49 @@ def chat():
     response = get_response(chat_history, character)
 
     return response
+    
+def get_character_list(text):
+    user_input = "List the characters in the script"
+    # Define the character's name and description
+    text_splitter = RecursiveCharacterTextSplitter(separators=["\n"],chunk_size=1000, chunk_overlap=100)
+    texts = text_splitter.split_text(text)
+    # Initialize the chat model for the character
+    chat_model = ChatCohere(cohere_api_key=cohere_api_key, model='command',temperature=0.0)
+    embeddings = CohereEmbeddings(cohere_api_key=cohere_api_key)
+    # Create a vectorstore from documents
+    vectorstore = Chroma.from_texts(texts, embeddings)
+    # Create retriever interface
+    retriever=vectorstore.as_retriever()
+    # Create the memory object
+    memory=ConversationBufferMemory(
+        memory_key='chat_history', return_messages=True)
+    #prompt
+    custom_prompt_template = """
+                      {context}
+                      Extract the list of at least 5-6 main characters only from the movie script in the format
+                      ```The list of characters are:
+                          -Character1
+                          -Character2
+                          -Character3
+                          -Character4
+                          etc
+                        ```
+    Dont ask or tell anything else your only role is to provide the list of characters
+    """
 
+    prompt = PromptTemplate(template=custom_prompt_template,
+                      input_variables=['context', 'question'])
+    #list retrieval chain
+    chain = RetrievalQA.from_chain_type(llm=chat_model,
+                                      chain_type='stuff',
+                                      retriever=retriever,
+                                      return_source_documents=False,
+                                      chain_type_kwargs={'prompt': prompt}
+                                      )
+    response=chain({'query': user_input})
+
+    list = response["result"]+"\n\n Who would you like to talk to :) ?"
+    return list
 
 def get_response(messages, character):
     prompt_template = ChatPromptTemplate(
